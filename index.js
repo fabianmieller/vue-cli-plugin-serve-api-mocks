@@ -21,7 +21,7 @@ function rewrite(apiPath, extensions, req, next) {
 module.exports = (api, projectOptions) => {
 	api.configureDevServer((app, server) => {
 		const config = projectOptions.pluginOptions["serve-api-mocks"];
-		if (config.routes) {
+		if (config.base && config.routes) {
 			config.routes.forEach(route => {
 				const relative = route.relative === undefined ? true : route.relative;
 				let path = route.path || "/";
